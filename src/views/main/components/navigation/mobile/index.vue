@@ -1,27 +1,23 @@
 <template>
-  <div>mobile navigation</div>
-  loading: {{ loading }}
-  <div v-if="loading">Loading...</div>
-  <ul v-else>
-    <li v-for="category in categoryList" :key="category.id">
+  <ul
+    class="sticky top-0 left-0 z-10 flex overflow-hidden overflow-x-auto bg-white p-1"
+  >
+    <li
+      class="shrink-0 px-1.5 py-0.5 text-xs text-zinc-600 duration-200"
+      v-for="category in categorys"
+      :key="category.id"
+    >
       {{ category.name }}
     </li>
   </ul>
 </template>
 
 <script setup>
-import { onMounted, ref, computed } from 'vue'
-import { getCategory } from '@/api/category'
-import usePromise from '@/composables/usePromise'
-
-const { results, loading, createPromise } = usePromise(getCategory)
-
-const categoryList = computed(() => {
-  return results.value?.categorys || []
-})
-
-onMounted(async () => {
-  createPromise()
+defineProps({
+  categorys: {
+    type: Array,
+    default: () => []
+  }
 })
 </script>
 
