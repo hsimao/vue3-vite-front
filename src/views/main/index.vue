@@ -1,7 +1,11 @@
 <template>
-  <div>mobile home</div>
+  <div>
+    <app-navigation />
+  </div>
 </template>
 
-<script setup></script>
+<script setup>
+import AppNavigation from './components/navigation/index.vue'
+</script>
 
 <style lang="scss" scoped></style>
