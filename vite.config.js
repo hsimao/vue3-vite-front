@@ -11,5 +11,15 @@ export default defineConfig({
       // @/components/about.vue => /src/components/about.vue
       '@': join(__dirname, '/src')
     }
+  },
+  server: {
+    // 代理配置 - 解決本地開發 api 跨域
+    proxy: {
+      // 代理所有 /api 請求
+      '/api': {
+        target: 'https://api.imooc-front.lgdsunday.club',
+        changeOrigin: true
+      }
+    }
   }
 })
