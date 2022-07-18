@@ -17,7 +17,7 @@ import usePromise from '@/composables/usePromise'
 const { results, loading, createPromise } = usePromise(getCategory)
 
 const categoryList = computed(() => {
-  return results.value?.data?.data?.categorys || []
+  return results.value?.categorys || []
 })
 
 onMounted(async () => {
