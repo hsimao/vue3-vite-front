@@ -44,7 +44,7 @@ let itemRefs = []
 const currentActiveIndex = ref(0)
 const sliderStyle = ref({
   transform: 'translateX(0px)',
-  width: '60px'
+  width: '53px'
 })
 
 const setItemRef = (el) => {
