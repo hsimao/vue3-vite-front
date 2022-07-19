@@ -31,7 +31,6 @@
 
 <script setup>
 import { ref, onBeforeUpdate, watch } from 'vue'
-import { useScroll } from '@vueuse/core'
 
 defineProps({
   categorys: {
@@ -48,9 +47,6 @@ const sliderStyle = ref({
   width: '60px'
 })
 
-// 透過 useScroll 取得 ulTarget 滾動距離
-const { x: ulScrollLeft } = useScroll(ulRef)
-
 const setItemRef = (el) => {
   if (el) itemRefs.push(el)
 }
@@ -65,9 +61,10 @@ const getRectByIndex = (index) => {
 
 const updateSliderStyleByIndex = (index) => {
   const { left, width } = getRectByIndex(index)
+  const ulScrollLeft = ulRef.value.scrollLeft
 
   // 偏移位置 = ul left 滾動位置 + 當前元素的 left - ul padding 距離
-  const offset = ulScrollLeft.value + left - 10
+  const offset = ulScrollLeft + left - 10
   sliderStyle.value = {
     transform: `translateX(${offset}px)`,
     width: `${width}px`
