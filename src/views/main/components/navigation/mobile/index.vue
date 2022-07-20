@@ -11,6 +11,7 @@
     <!-- 漢堡按鈕 -->
     <li
       class="fixed top-0 right-[-1px] z-20 flex h-4 items-center bg-white px-1 shadow-l-white"
+      @click="showPopup"
     >
       <m-svg-icon name="hamburger" class="h-1.5 w-1.5" />
     </li>
@@ -27,6 +28,9 @@
       {{ category.name }}
     </li>
   </ul>
+  <m-popup v-model="isPopupVisible">
+    <h1>Hello</h1>
+  </m-popup>
 </template>
 
 <script setup>
@@ -39,6 +43,11 @@ defineProps({
   }
 })
 
+// popup logic
+const isPopupVisible = ref(false)
+const showPopup = () => (isPopupVisible.value = true)
+
+// active slider logic
 const ulRef = ref(null)
 let itemRefs = []
 const currentActiveIndex = ref(0)
