@@ -29,12 +29,13 @@
     </li>
   </ul>
   <m-popup v-model="isPopupVisible">
-    <h1>Hello</h1>
+    <app-menu :categorys="categorys" @onItemClick="updateActive" />
   </m-popup>
 </template>
 
 <script setup>
 import { ref, onBeforeUpdate, watch } from 'vue'
+import AppMenu from '@/views/main/components/menu/index.vue'
 
 defineProps({
   categorys: {
@@ -60,7 +61,10 @@ const setItemRef = (el) => {
   if (el) itemRefs.push(el)
 }
 
-const updateActive = (index) => (currentActiveIndex.value = index)
+const updateActive = (index) => {
+  currentActiveIndex.value = index
+  isPopupVisible.value = false
+}
 
 const getRectByIndex = (index) => {
   const targetItem = itemRefs[index]
