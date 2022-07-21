@@ -28,7 +28,12 @@
         class="absolute right-[62px] top-[50%] h-1.5 w-[1px] translate-y-[-50%] bg-zinc-200 opacity-0 duration-500 group-hover:opacity-100"
       />
 
-      <!-- TODO: 搜尋按鈕 (通用組件) -->
+      <!-- 搜尋按鈕 -->
+      <m-button
+        class="absolute right-1 top-[50%] translate-y-[-50%] rounded-full"
+        icon="search"
+        iconColor="white"
+      />
     </div>
 
     <!-- 下拉區塊 -->
