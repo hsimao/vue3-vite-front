@@ -20,6 +20,9 @@
 </template>
 
 <script>
+// 延遲關閉時間, 毫秒
+const DELAY_TIME = 100
+
 // 左上
 const TOP_LEFT = 'top-left'
 // 右上
@@ -52,11 +55,18 @@ const props = defineProps({
 })
 
 const isVisible = ref(false)
+
+// 滑鼠移入、移出顯示彈層邏輯
+let timeout
 const onMouseenter = () => {
   isVisible.value = true
+  if (timeout) clearTimeout(timeout)
 }
 const onMouseleave = () => {
-  isVisible.value = false
+  timeout = setTimeout(() => {
+    isVisible.value = false
+    timeout = null
+  }, DELAY_TIME)
 }
 
 // 計算尺寸
