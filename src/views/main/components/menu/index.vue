@@ -3,7 +3,7 @@
     <h2 class="mb-2 px-1 text-xl font-bold text-zinc-900">所有分類</h2>
     <ul class="overflow-y-scroll">
       <li
-        v-for="(item, index) in categorys"
+        v-for="(item, index) in categoryStore.getCategorys"
         :key="item.id"
         @click="$emit('onItemClick', index)"
         class="px-1 py-1.5 text-lg text-zinc-900 duration-100 active:bg-zinc-100"
@@ -15,12 +15,8 @@
 </template>
 
 <script setup>
-defineProps({
-  categorys: {
-    type: Array,
-    default: () => []
-  }
-})
+import { useCategory } from '@/store/category'
+const categoryStore = useCategory()
 
 defineEmits(['onItemClick'])
 </script>
