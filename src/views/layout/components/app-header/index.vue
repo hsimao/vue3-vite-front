@@ -19,7 +19,7 @@
 
 <script setup>
 import headerSearch from './header-search.vue'
-import headerTheme from './header-theme.vue'
+import { HeaderTheme } from '@/features/theme'
 import headerMy from './header-my.vue'
 import { useRouter } from 'vue-router'
 
