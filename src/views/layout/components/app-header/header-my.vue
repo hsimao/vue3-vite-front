@@ -2,7 +2,7 @@
   <m-popover class="flex-items-center" placement="bottom-left">
     <template #reference>
       <div
-        class="relative flex shrink-0 cursor-pointer items-center rounded-sm p-0.5 outline-none duration-200 hover:bg-zinc-100"
+        class="relative flex shrink-0 cursor-pointer items-center rounded-sm p-0.5 outline-none duration-200 hover:bg-zinc-100 dark:hover:bg-zinc-900"
       >
         <!-- 頭像 -->
         <img
@@ -15,7 +15,7 @@
         <m-svg-icon
           name="down-arrow"
           extendClass="fill-zinc-900"
-          class="ml-0.5 h-1.5 w-1.5"
+          class="ml-0.5 h-1.5 w-1.5 dark:fill-zinc-300"
         />
 
         <!-- vip icon -->
@@ -32,15 +32,17 @@
       <div
         v-for="menu in menuList"
         :key="menu.id"
-        class="items-cnter flex cursor-pointer rounded p-1 hover:bg-zinc-100/60"
+        class="items-cnter flex cursor-pointer rounded p-1 hover:bg-zinc-100/60 dark:hover:bg-zinc-800"
       >
         <m-svg-icon
           :name="menu.icon"
-          extendClass="fill-zinc-900"
+          extendClass="fill-zinc-900 dark:fill-zinc-300"
           class="mr-1 h-1.5 w-1.5"
         />
 
-        <span class="text-sm text-zinc-800">{{ menu.title }}</span>
+        <span class="text-sm text-zinc-800 dark:text-zinc-300">
+          {{ menu.title }}
+        </span>
       </div>
     </div>
   </m-popover>

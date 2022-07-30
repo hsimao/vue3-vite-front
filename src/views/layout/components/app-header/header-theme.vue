@@ -4,8 +4,8 @@
     <template #reference>
       <m-svg-icon
         name="theme-light"
-        class="h-4 w-4 cursor-pointer rounded-sm p-1 outline-none duration-200 hover:bg-zinc-100/60"
-        extendClass="fill-zinc-900"
+        class="h-4 w-4 cursor-pointer rounded-sm p-1 outline-none duration-200 hover:bg-zinc-100/60 dark:hover:bg-zinc-900"
+        extendClass="fill-zinc-900 dark:fill-zinc-300"
       />
     </template>
 
@@ -14,14 +14,16 @@
       <div
         v-for="theme in themeList"
         :key="theme.id"
-        class="flex cursor-pointer items-center rounded p-1 hover:bg-zinc-100/60"
+        class="flex cursor-pointer items-center rounded p-1 hover:bg-zinc-100/60 dark:hover:bg-zinc-800"
       >
         <m-svg-icon
           :name="theme.icon"
           class="mr-1 h-1.5 w-1.5"
-          extendClass="fill-zinc-900"
+          extendClass="fill-zinc-900 dark:fill-zinc-300"
         />
-        <span class="text-sm text-zinc-900">{{ theme.name }}</span>
+        <span class="text-sm text-zinc-900 dark:text-zinc-300">{{
+          theme.name
+        }}</span>
       </div>
     </div>
   </m-popover>

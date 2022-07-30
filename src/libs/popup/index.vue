@@ -5,7 +5,7 @@
       <transition name="fade">
         <div
           v-if="isVisable"
-          class="fixed top-0 left-0 z-40 h-screen w-screen bg-zinc-900/80"
+          class="fixed top-0 left-0 z-40 h-screen w-screen bg-zinc-900/80 dark:bg-zinc-800"
           @click="isVisable = false"
         />
       </transition>

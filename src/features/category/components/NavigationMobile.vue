@@ -1,16 +1,19 @@
 <template>
   <div class="sticky top-0 left-0 z-10 bg-white"></div>
-  <ul ref="ulRef" class="relative flex overflow-hidden overflow-x-auto p-1">
+  <ul
+    ref="ulRef"
+    class="relative flex overflow-hidden overflow-x-auto p-1 dark:bg-zinc-900"
+  >
     <!-- active 滑塊 -->
     <li
       ref="activeSliderRef"
       :style="sliderStyle"
-      class="absolute z-[-1] h-[22px] rounded-lg bg-zinc-900 duration-200"
+      class="absolute z-[-1] h-[22px] rounded-lg bg-zinc-900 duration-200 dark:bg-zinc-800"
     />
 
     <!-- 漢堡按鈕 -->
     <li
-      class="fixed top-0 right-[-1px] z-20 flex h-4 items-center bg-white px-1 shadow-l-white"
+      class="fixed top-0 right-[-1px] z-20 flex h-4 items-center bg-white px-1 shadow-l-white dark:bg-zinc-900 dark:shadow-l-zinc"
       @click="showPopup"
     >
       <m-svg-icon name="hamburger" class="h-1.5 w-1.5" />
@@ -29,10 +32,7 @@
     </li>
   </ul>
   <m-popup v-model="isPopupVisible">
-    <navigation-mobile-menu
-      :categorys="categorys"
-      @onItemClick="updateActive"
-    />
+    <navigation-mobile-menu @onItemClick="updateActive" />
   </m-popup>
 </template>
 

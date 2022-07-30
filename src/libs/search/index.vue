@@ -1,7 +1,7 @@
 <template>
   <div
     ref="searchContainerRef"
-    class="group relative rounded-xl border-white p-0.5 duration-500 hover:bg-red-100/40"
+    class="group relative rounded-xl border-white p-0.5 duration-500 hover:bg-red-100/40 dark:border-zinc-200"
   >
     <div>
       <!-- search icon -->
@@ -13,7 +13,7 @@
 
       <!-- input -->
       <input
-        class="block h-[44px] w-full rounded-xl border border-zinc-100 bg-zinc-100 pl-4 text-sm font-semibold tracking-wide text-zinc-900 caret-zinc-400 outline-0 duration-500 focus:border-red-300 group-hover:border-zinc-200 group-hover:bg-white"
+        class="block h-[44px] w-full rounded-xl border border-zinc-100 bg-zinc-100 pl-4 text-sm font-semibold tracking-wide text-zinc-900 caret-zinc-400 outline-0 duration-500 focus:border-red-300 group-hover:border-zinc-200 group-hover:bg-white dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200 dark:group-hover:border-zinc-700 dark:group-hover:bg-zinc-900"
         type="text"
         placeholder="搜尋"
         v-model="inputValue"
@@ -49,7 +49,7 @@
       <div
         v-if="$slots.dropdown"
         v-show="isFocus"
-        class="absolute left-0 top-[56px] z-20 max-h-[368px] w-full overflow-auto rounded border border-zinc-200 bg-white p-2 text-base duration-200 hover:shadow-2xl"
+        class="absolute left-0 top-[56px] z-20 max-h-[368px] w-full overflow-auto rounded border border-zinc-200 bg-white p-2 text-base duration-200 hover:shadow-2xl dark:border-zinc-600 dark:bg-zinc-800"
       >
         <slot name="dropdown" />
       </div>

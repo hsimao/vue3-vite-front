@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { CATEGORY_DEFAULT_DATA } from './constants'
+import { CATEGORY_DEFAULT_DATA, ALL_CATEGORY_ITEM } from './constants'
 import { getCategory } from '@/api/category'
 import usePromise from '@/composables/usePromise'
 
@@ -12,7 +12,7 @@ export const useCategory = defineStore('category', {
       const { results, createPromise } = usePromise(getCategory)
       await createPromise()
       if (results.value) {
-        this.categorys = results.value.categorys
+        this.categorys = [ALL_CATEGORY_ITEM, ...results.value.categorys]
       }
     }
   },

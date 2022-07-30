@@ -37,9 +37,12 @@ const EMITS_CLICK = 'click'
 
 // type: 按鈕風格
 const BUTTON_TYPE = {
-  base: 'text-white bg-zinc-800 hover:bg-zinc-900 active:bg-zinc-800',
-  primary: 'text-white bg-primary hover:bg-hover-primary active:bg-primary',
-  info: 'text-zinc-800 bg-zinc-200 hover:bg-zinc-300 active:bg-zinc-200'
+  base: `text-white bg-zinc-800 hover:bg-zinc-900 active:bg-zinc-800 
+         dark:bg-zinc-900 dark:hover:bg-zinc-700 dark:active:bg-zinc-700`,
+  primary: `text-white bg-primary hover:bg-hover-primary active:bg-primary 
+            dark:hover:bg-zinc-700 dark:active:bg-zinc-700 dark:bg-zinc-900`,
+  info: `text-zinc-800 bg-zinc-200 hover:bg-zinc-300 active:bg-zinc-200
+          dark:text-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-600`
 }
 
 // size: 按鈕大小, 需區分文字、icon 按鈕
