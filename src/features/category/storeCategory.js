@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia'
-import { ALL_CATEGORY_ITEM } from '@/constants'
+import { ALL_CATEGORY_ITEM, CATEGORY_DEFAULT_DATA } from './constants'
 import { getCategory } from '@/api/category'
 import usePromise from '@/composables/usePromise'
 
 export const useCategory = defineStore('category', {
   state: () => ({
-    categorys: []
+    categorys: CATEGORY_DEFAULT_DATA
   }),
   getters: {
     getCategorys: (state) => [ALL_CATEGORY_ITEM, ...state.categorys]
