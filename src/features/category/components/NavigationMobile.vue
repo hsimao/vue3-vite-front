@@ -18,7 +18,7 @@
 
     <!-- 選單 -->
     <li
-      v-for="(category, index) in categoryStore.getCategorys"
+      v-for="(category, index) in categoryStore.categorys"
       :key="category.id"
       class="shrink-0 px-1.5 py-0.5 text-xs text-zinc-600 duration-200 last:mr-4"
       :class="{ 'text-zinc-100': currentActiveIndex === index }"
@@ -43,9 +43,7 @@ import NavigationMobileMenu from './NavigationMobileMenu.vue'
 import { useCategory } from '../storeCategory'
 const categoryStore = useCategory()
 
-if (!categoryStore.categorys.length) {
-  categoryStore.fetchCategory()
-}
+categoryStore.fetchCategory()
 
 // popup logic
 const isPopupVisible = ref(false)

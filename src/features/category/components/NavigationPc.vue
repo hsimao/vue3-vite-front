@@ -18,7 +18,7 @@
 
       <!-- item -->
       <li
-        v-for="item in categoryStore.getCategorys"
+        v-for="item in categoryStore.categorys"
         :key="item.id"
         class="z-10 mr-1 mb-1 h-4 shrink-0 cursor-pointer rounded px-1.5 py-0 text-base font-bold leading-4 text-zinc-900 duration-200 hover:bg-zinc-200"
         :class="{
@@ -37,16 +37,14 @@ import { ref } from 'vue'
 import { useCategory } from '../storeCategory'
 const categoryStore = useCategory()
 
-if (!categoryStore.categorys.length) {
-  categoryStore.fetchCategory()
-}
+categoryStore.fetchCategory()
 
 const isOpenCategory = ref(false)
 const toggleCategory = () => {
   isOpenCategory.value = !isOpenCategory.value
 }
 
-const currentCategory = ref(categoryStore.getCategorys[0])
+const currentCategory = ref(categoryStore.categorys[0])
 const onItemClick = (category) => (currentCategory.value = category)
 </script>
 
