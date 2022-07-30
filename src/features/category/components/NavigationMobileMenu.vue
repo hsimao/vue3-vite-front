@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { useCategory } from '@/store/category'
+import { useCategory } from '../storeCategory'
 const categoryStore = useCategory()
 
 defineEmits(['onItemClick'])

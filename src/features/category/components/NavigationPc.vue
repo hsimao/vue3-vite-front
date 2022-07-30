@@ -34,8 +34,12 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useCategory } from '@/store/category'
+import { useCategory } from '../storeCategory'
 const categoryStore = useCategory()
+
+if (!categoryStore.categorys.length) {
+  categoryStore.fetchCategory()
+}
 
 const isOpenCategory = ref(false)
 const toggleCategory = () => {

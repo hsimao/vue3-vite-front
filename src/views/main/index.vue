@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import AppNavigation from './components/navigation/index.vue'
+import AppNavigation from './Navigation.vue'
 </script>
 
 <style lang="scss" scoped></style>

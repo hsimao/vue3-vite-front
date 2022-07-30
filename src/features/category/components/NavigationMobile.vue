@@ -18,7 +18,7 @@
 
     <!-- 選單 -->
     <li
-      v-for="(category, index) in categorys"
+      v-for="(category, index) in categoryStore.getCategorys"
       :key="category.id"
       class="shrink-0 px-1.5 py-0.5 text-xs text-zinc-600 duration-200 last:mr-4"
       :class="{ 'text-zinc-100': currentActiveIndex === index }"
@@ -29,20 +29,23 @@
     </li>
   </ul>
   <m-popup v-model="isPopupVisible">
-    <app-menu :categorys="categorys" @onItemClick="updateActive" />
+    <navigation-mobile-menu
+      :categorys="categorys"
+      @onItemClick="updateActive"
+    />
   </m-popup>
 </template>
 
 <script setup>
 import { ref, onBeforeUpdate, watch } from 'vue'
-import AppMenu from '@/views/main/components/menu/index.vue'
+import NavigationMobileMenu from './NavigationMobileMenu.vue'
 
-defineProps({
-  categorys: {
-    type: Array,
-    default: () => []
-  }
-})
+import { useCategory } from '../storeCategory'
+const categoryStore = useCategory()
+
+if (!categoryStore.categorys.length) {
+  categoryStore.fetchCategory()
+}
 
 // popup logic
 const isPopupVisible = ref(false)
